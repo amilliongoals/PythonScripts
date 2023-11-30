@@ -23,5 +23,6 @@ C) Create a script to find hidden images (screenshots), audio files, and videos 
 
 Think of unique ways to report this in a manageable way - potentially, report out the folder each of these is in (once), and not duplicates, and the file size of the folder that said files can be found in (otherwise won't be very manageable to scan through, ignore, etc.). 
 
-D) Inside of each of the extension folders in each of the 'major areas', will create sub-folders for large memory items inside of it, and leave the rest normally inside of the folder to quickly identify storage eating items. 
+D) Inside each of the extension folders in each of the 'major areas', will create sub-folders for large memory items inside of it, and leave the rest normally inside of the folder to quickly identify storage eating items. 
 
+E) Do this to help find all my hidden coding projects from the past for C++, C#, and Python and throw them on Github while also solving my storage issue on my cpu :) 
