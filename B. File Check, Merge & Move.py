@@ -11,9 +11,9 @@ Documents= 'C:\\Users\\gagni\\Documents'
 Downloads= 'C:\\Users\\gagni\\Downloads'
 Music= 'C:\\Users\\gagni\\Music'
 ThreeD_Objects= 'C:\\Users\\gagni\\3D_Objects'
+Coding= 'C:\\Users\\gagni\\Coding'
 
-
-Folder_list=[Pictures, Videos, Desktop, Documents, Downloads, Music, ThreeD_Objects]
+Folder_list=[Pictures, Videos, Desktop, Documents, Downloads, Music, ThreeD_Objects, Coding]
 
 
 file_types_available=set()
@@ -37,6 +37,28 @@ while i <len(Folder_list):
          if "." in item:    #check for files with . in the name (filename)
             extensions =item.split('.')[-1]  #the extension type will be stored as 'extensions'
             file_types_available.add(extensions)  
+
+    
+        for files in Folder_list[i]:
+           if files.endswith('.jpeg', '.jpg', '.png','.gif', '.tiff', '.psd', '.raw', '.bmp', '.hdr',  '.heic', '.img', '.jfif', '.snag', '.svg', '.tif'):
+              shutilmove( source , Pictures ) #go to pictures of file type oflder 
+        #can change to shutilcopy if I don't want to remove where it is currently. 
+
+         for files in Folder_list[i]:
+           if files.endswith('.mov', '.mp4',  '.SC2Replay', '.rofl', '.swf', '.webm', '.zoom'):
+              shutilmove( source , Videos )    
+           if files.endswith('.exe'):
+              shutilmove( source ,Desktop)
+           if files.endswith('.csv','.dat','.doc','.docx','.escv','.fits','.pp_','.ppt', '.pptx','.txt','.xls','.xlsm','.xlsx'):
+              shutilmove( source ,Documents)
+           if files.endswith('.download','.ex_','.gz','.jar','.zip','.msi','.pak'):
+              shutilmove( source ,Downloads )
+           if files.endswith('.glb','.stl', '.obj', '.x3g', '.3ds', '.3dm', '.dae', '.fbx'):
+              shutilmove( source ,ThreeD_Objects )
+           if files.endswith('.ahk','.apk','.aia','.appinstaller','.css','.db', '.h','.html','.ino', '.ipynb','.ipynd', '.js','.json','.jsp','.notebook','.py','.pyc'):
+              shutilmove( source ,Coding )
+
+
     i=i+1
 
 #this prints out the extensions from all the items in my list, my list currently includes
@@ -55,4 +77,25 @@ print(filetypesort) #moved print outside of loop, so it only prints all of the v
 #succesfully printed sorted list of data types of files in each of the folder/sub-folder of interest 
 
 
+#now that I know all my file types let me plan where I want specific ones to go
+#I'll just ignore the file that are not of use, below is my structure for the files I 
+#want ended up in each respective folder 
 
+#Pictures= jpeg jpg png gif tiff psd raw bmp hdr heic img jfif snag svg tif 
+#Videos= mov mp4  SC2Replay rofl swf webm zoom 
+#Desktop= exe
+#Documents=  csv  dat doc docx escv fits pp_ ppt pptx txt xls xlsm xlsx 
+#Downloads= download ex_ gz jar zip msi pak 
+#Music= mp3 aup3 ogg
+#ThreeD_Objects= glb stl 
+#Coding =  ahk apk aia appinstaller css db h html ino ipynb ipynd js json jsp notebook py pyc
+
+# create folders for each extension type
+for extension in extensions:
+    if not os.path.exists(os.path.join(target_folder, extension)):
+        os.mkdir(os.path.join(target_folder, extension))
+
+shutil.move(os.path.join(target_folder, item), 
+             os.path.join(target_folder, file_extension, item)) 
+
+#move to folder by file type and file name (item)
