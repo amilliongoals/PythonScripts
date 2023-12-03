@@ -33,31 +33,34 @@ while i <len(Folder_list):
         #print(dirs) #to view directory from folder currently being viewed 
         #print(files) #to view files from folder currently being viewed 
 
+        for name in files:
+            if name.endswith(".jpeg",".jpg",".png",".gif",".tiff",".psd",".raw",".bmp",".hdr",".heic",".img",".jfif",".snag",".svg",".tif"):
+                if not os.path.isfile(Pictures, files): 
+                    shutil.move( files , Pictures ) #go to pictures of file type   
+            if name.endswith('.mov', '.mp4',  '.SC2Replay', '.rofl', '.swf', '.webm', '.zoom'):
+                if not os.path.isfile(Videos, files):
+                    shutil.move( files , Videos ) #can change to shutilcopy if I don't want to remove where it is currently. 
+            if name.endswith('.exe'):
+                if not os.path.isfile(Desktop, files):
+                    shutil.move( files ,Desktop)
+            if name.endswith('.csv','.dat','.doc','.docx','.escv','.fits','.pp_','.ppt', '.pptx','.txt','.xls','.xlsm','.xlsx'):
+                if not os.path.isfile(Documents, files):
+                    shutil.move( files ,Documents)
+            if name.endswith('.download','.ex_','.gz','.jar','.zip','.msi','.pak'):
+                if not os.path.isfile(Downloads, files):
+                    shutil.move( files ,Downloads )
+            if name.endswith('.glb','.stl', '.obj', '.x3g', '.3ds', '.3dm', '.dae', '.fbx'):
+                if not os.path.isfile(ThreeD_Objects, files):
+                    shutil.move( files ,ThreeD_Objects )
+            if name.endswith('.ahk','.apk','.aia','.appinstaller','.css','.db', '.h','.html','.ino', '.ipynb','.ipynd', '.js','.json','.jsp','.notebook','.py','.pyc'):
+                if not os.path.isfile(Coding , files):
+                    shutil.move( files ,Coding )
+
         for item in files:
-         if "." in item:    #check for files with . in the name (filename)
-            extensions =item.split('.')[-1]  #the extension type will be stored as 'extensions'
-            file_types_available.add(extensions)  
-
-    
-        for files in Folder_list[i]:
-           if files.endswith('.jpeg', '.jpg', '.png','.gif', '.tiff', '.psd', '.raw', '.bmp', '.hdr',  '.heic', '.img', '.jfif', '.snag', '.svg', '.tif'):
-              shutilmove( source , Pictures ) #go to pictures of file type oflder 
-        #can change to shutilcopy if I don't want to remove where it is currently. 
-
-         for files in Folder_list[i]:
-           if files.endswith('.mov', '.mp4',  '.SC2Replay', '.rofl', '.swf', '.webm', '.zoom'):
-              shutilmove( source , Videos )    
-           if files.endswith('.exe'):
-              shutilmove( source ,Desktop)
-           if files.endswith('.csv','.dat','.doc','.docx','.escv','.fits','.pp_','.ppt', '.pptx','.txt','.xls','.xlsm','.xlsx'):
-              shutilmove( source ,Documents)
-           if files.endswith('.download','.ex_','.gz','.jar','.zip','.msi','.pak'):
-              shutilmove( source ,Downloads )
-           if files.endswith('.glb','.stl', '.obj', '.x3g', '.3ds', '.3dm', '.dae', '.fbx'):
-              shutilmove( source ,ThreeD_Objects )
-           if files.endswith('.ahk','.apk','.aia','.appinstaller','.css','.db', '.h','.html','.ino', '.ipynb','.ipynd', '.js','.json','.jsp','.notebook','.py','.pyc'):
-              shutilmove( source ,Coding )
-
+            if "." in item:    #check for files with . in the name (filename)
+                extensions =item.split('.')[-1]  #the extension type will be stored as 'extensions'
+                file_types_available.add(extensions)  
+            
 
     i=i+1
 
@@ -91,11 +94,11 @@ print(filetypesort) #moved print outside of loop, so it only prints all of the v
 #Coding =  ahk apk aia appinstaller css db h html ino ipynb ipynd js json jsp notebook py pyc
 
 # create folders for each extension type
-for extension in extensions:
-    if not os.path.exists(os.path.join(target_folder, extension)):
-        os.mkdir(os.path.join(target_folder, extension))
+#for extension in extensions:
+    #if not os.path.exists(os.path.join(target_folder, extension)):
+       # os.mkdir(os.path.join(target_folder, extension))
 
-shutil.move(os.path.join(target_folder, item), 
-             os.path.join(target_folder, file_extension, item)) 
+#shutil.move(os.path.join(target_folder, item), 
+            # os.path.join(target_folder, file_extension, item)) 
 
 #move to folder by file type and file name (item)
