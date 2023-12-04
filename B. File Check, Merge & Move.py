@@ -37,15 +37,17 @@ while i <len(Folder_list):
         #print(root) #to view root from folder currently being viewed 
         #print(dirs) #to view directory from folder currently being viewed 
         #print(files) #to view files from folder currently being viewed 
-        j=0
+        
         for file in files:
             file_path= os.path.join(root,file)
-            while j < len(Pictures_Extensions) & :
+            j=0
+            while j < len(Pictures_Extensions):
                 j=j+1
-                if file.endswith(Pictures_Extensions[j]): 
-              # if not os.path.isfile(Pictures, file_path): 
-                    shutil.copy( file_path , Pictures)#go to pictures of file type
+                if file.endswith(Pictures_Extensions[j-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Pictures,file))#go to pictures of file type
                     print(file_path)
+                    j=len(Pictures_Extensions)
+
                    
                            
             
