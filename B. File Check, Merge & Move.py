@@ -10,7 +10,7 @@ Desktop= 'C:\\Users\\gagni\\Desktop'
 Documents= 'C:\\Users\\gagni\\Documents'
 Downloads= 'C:\\Users\\gagni\\Downloads'
 Music= 'C:\\Users\\gagni\\Music'
-ThreeD_Objects= 'C:\\Users\\gagni\\3D_Objects'
+ThreeD_Objects= 'C:\\Users\\gagni\\ThreeD_Objects'
 Coding= 'C:\\Users\\gagni\\Coding'
 
 Folder_list=[Pictures, Videos, Desktop, Documents, Downloads, Music, ThreeD_Objects, Coding]
@@ -38,6 +38,7 @@ while i <len(Folder_list):
         #print(dirs) #to view directory from folder currently being viewed 
         #print(files) #to view files from folder currently being viewed 
         
+        #picture chain function
         for file in files:
             file_path= os.path.join(root,file)
             j=0
@@ -48,15 +49,81 @@ while i <len(Folder_list):
                     print(file_path)
                     j=len(Pictures_Extensions)
 
-                   
-                           
-            
+        #video chain function
+        for file in files:
+            file_path= os.path.join(root,file)
+            k=0
+            while k < len(Videos_Extensions):
+                k=k+1
+                if file.endswith(Videos_Extensions[k-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Videos,file))#go to pictures of file type
+                    print(file_path)
+                    k=len(Videos_Extensions)
+
+        #desktop chain function
+        for file in files:
+            file_path= os.path.join(root,file)
+            l=0
+            while l < len(Desktop_Extensions):
+                l=l+1
+                if file.endswith(Desktop_Extensions[l-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Desktop,file))#go to pictures of file type
+                    print(file_path)
+                    l=len(Desktop_Extensions)
+
+        #documents chain function                    
+        for file in files:
+            file_path= os.path.join(root,file)
+            m=0
+            while m < len(Documents_Extensions):
+                m=m+1
+                if file.endswith(Documents_Extensions[m-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Documents,file))#go to pictures of file type
+                    print(file_path)
+                    m=len(Documents_Extensions)
+                    
+        #downloads chain function                    
+        for file in files:
+            file_path= os.path.join(root,file)
+            n=0
+            while n < len(Downloads_Extensions):
+                n=n+1
+                if file.endswith(Downloads_Extensions[n-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Downloads,file))#go to pictures of file type
+                    print(file_path)
+                    n=len(Downloads_Extensions)
+
+        #ThreeD_Objects chain function                    
+        for file in files:
+            file_path= os.path.join(root,file)
+            o=0
+            while o < len(ThreeD_Objects_Extensions):
+                o=o+1
+                if file.endswith(ThreeD_Objects_Extensions[o-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(ThreeD_Objects,file))#go to pictures of file type
+                    print(file_path)
+                    o=len(ThreeD_Objects_Extensions)
+
+        #Coding chain function                    
+        for file in files:
+            file_path= os.path.join(root,file)
+            p=0
+            while p < len(Coding_Extensions):
+                p=p+1
+                if file.endswith(Coding_Extensions[p-1]): 
+                    shutil.move( os.path.abspath(file_path) , os.path.join(Coding,file))#go to pictures of file type
+                    print(file_path)
+                    p=len(Coding_Extensions)                    
+       
             
     i=i+1
 
-filetypesort=list(file_types_available) #convert 'set' data into a normal list 
-filetypesort.sort() #sort said list now  
-print(filetypesort) #moved print outside of loop, so it only prints all of the values
+
+
+
+
+
+
 
 
 #this prints out the extensions from all the items in my list, my list currently includes
