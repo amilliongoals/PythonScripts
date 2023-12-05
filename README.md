@@ -2,7 +2,7 @@
 Scripts to make my life easier 
 
 
-A) **Clean my X Folder **
+A**COMPLETE** ) **Clean my X Folder **
 Purpose: I have files of every type everywhere in every major folder: Documents, Pictures, Videos, Downloads, Desktop. 
 This code is to help first uniformly figure out what is each of those folders and put them in their appropriate buckets in each of those locations 
 
@@ -12,10 +12,8 @@ Modify the file target, and take all of the files in a folder [ignores current f
   3) Place files of each extension into their respective folder
 
 
-Next step: 
-
-B) Have this script run through multiple folders, then report what extension folders are in each of the 'major areas'. From there, merge folders into the correct locations for them. 
-E.g., move all video folders into video, and merge them into a centralized extension folder in those 'major areas' 
+B**COMPLETE** ) Have this script run through multiple folders, then report what extension folders are in each of the 'major areas'
+E.g., move all video files into video folder
 Create unique folders [3D Models, Arduino Code, Python Code, etc.] under C\Users\<me>, and organize those files appropriately
 
 C) Create a script that runs daily at a set time, on boot-up, etc., or just in some determined interval, and regularly cleans
